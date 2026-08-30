@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
+from app.agents.tech_support import TechSupportResult
 from app.agents.triage import TriageResult
 from app.main import app
 
@@ -75,4 +76,56 @@ def test_triage_endpoint_updates_ticket():
 
 def test_triage_endpoint_unknown_ticket_returns_404():
     response = client.post("/tickets/does-not-exist/triage")
+    assert response.status_code == 404
+
+
+def _create_technical_ticket() -> dict:
+    created = client.post(
+        "/tickets",
+        json={
+            "customer_email": "user@example.com",
+            "subject": "App crashes",
+            "message": "It closes right after opening.",
+        },
+    ).json()
+
+    fake_triage = TriageResult(category="technical", confidence=0.95, reasoning="mentions crash")
+    with patch("app.api.tickets.classify_ticket", return_value=fake_triage):
+        client.post(f"/tickets/{created['ticket_id']}/triage")
+
+    return created
+
+
+def test_tech_support_endpoint_resolves_with_good_match():
+    created = _create_technical_ticket()
+
+    fake_result = TechSupportResult(
+        status="resolved", reply="Try restarting.", source_doc="app_crash_on_startup", match_score=0.8
+    )
+    with patch("app.api.tickets.resolve_technical_ticket", return_value=fake_result):
+        response = client.post(f"/tickets/{created['ticket_id']}/tech-support")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "resolved"
+    assert body["reply"] == "Try restarting."
+    assert body["resolved_via"] == "app_crash_on_startup"
+
+
+def test_tech_support_endpoint_rejects_non_technical_ticket():
+    created = client.post(
+        "/tickets",
+        json={
+            "customer_email": "user@example.com",
+            "subject": "Refund",
+            "message": "Charge me back please.",
+        },
+    ).json()
+
+    response = client.post(f"/tickets/{created['ticket_id']}/tech-support")
+    assert response.status_code == 400
+
+
+def test_tech_support_endpoint_unknown_ticket_returns_404():
+    response = client.post("/tickets/does-not-exist/tech-support")
     assert response.status_code == 404

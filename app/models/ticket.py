@@ -16,6 +16,9 @@ class Ticket(TicketCreate):
     created_at: datetime
     category: str | None = None
     confidence: float | None = None
+    reply: str | None = None
+    resolved_via: str | None = None
+    match_score: float | None = None
 
     @classmethod
     def from_create(cls, data: TicketCreate) -> "Ticket":
