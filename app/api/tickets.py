@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from app import store
+from app.agents.triage import TriageError, classify_ticket
 from app.models.ticket import Ticket, TicketCreate
 
 router = APIRouter()
@@ -19,3 +20,25 @@ def get_ticket(ticket_id: str) -> Ticket:
     if ticket is None:
         raise HTTPException(status_code=404, detail="ticket not found")
     return ticket
+
+
+@router.post("/tickets/{ticket_id}/triage")
+def triage_ticket(ticket_id: str) -> Ticket:
+    ticket = store.get(ticket_id)
+    if ticket is None:
+        raise HTTPException(status_code=404, detail="ticket not found")
+
+    try:
+        result = classify_ticket(ticket)
+    except TriageError as e:
+        raise HTTPException(status_code=502, detail=str(e))
+
+    updated = ticket.model_copy(
+        update={
+            "category": result.category,
+            "confidence": result.confidence,
+            "status": "triaged",
+        }
+    )
+    store.save(updated)
+    return updated

@@ -14,6 +14,8 @@ class Ticket(TicketCreate):
     ticket_id: str
     status: str
     created_at: datetime
+    category: str | None = None
+    confidence: float | None = None
 
     @classmethod
     def from_create(cls, data: TicketCreate) -> "Ticket":

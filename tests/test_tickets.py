@@ -1,5 +1,8 @@
+from unittest.mock import patch
+
 from fastapi.testclient import TestClient
 
+from app.agents.triage import TriageResult
 from app.main import app
 
 client = TestClient(app)
@@ -47,3 +50,29 @@ def test_create_ticket_invalid_email_returns_422():
         },
     )
     assert response.status_code == 422
+
+
+def test_triage_endpoint_updates_ticket():
+    created = client.post(
+        "/tickets",
+        json={
+            "customer_email": "user@example.com",
+            "subject": "Refund please",
+            "message": "I was charged twice.",
+        },
+    ).json()
+
+    fake_result = TriageResult(category="billing", confidence=0.92, reasoning="mentions charge")
+    with patch("app.api.tickets.classify_ticket", return_value=fake_result):
+        response = client.post(f"/tickets/{created['ticket_id']}/triage")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["category"] == "billing"
+    assert body["confidence"] == 0.92
+    assert body["status"] == "triaged"
+
+
+def test_triage_endpoint_unknown_ticket_returns_404():
+    response = client.post("/tickets/does-not-exist/triage")
+    assert response.status_code == 404
