@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from app import store
+from app.agents.billing import resolve_billing_ticket
 from app.agents.tech_support import resolve_technical_ticket
 from app.agents.triage import TriageError, classify_ticket
 from app.models.ticket import Ticket, TicketCreate
@@ -64,6 +65,31 @@ def tech_support_ticket(ticket_id: str) -> Ticket:
             "reply": result.reply,
             "resolved_via": result.source_doc,
             "match_score": result.match_score,
+        }
+    )
+    store.save(updated)
+    return updated
+
+
+@router.post("/tickets/{ticket_id}/billing")
+def billing_ticket(ticket_id: str) -> Ticket:
+    ticket = store.get(ticket_id)
+    if ticket is None:
+        raise HTTPException(status_code=404, detail="ticket not found")
+    if ticket.category != "billing":
+        raise HTTPException(
+            status_code=400,
+            detail="ticket is not categorized as billing; run /triage first",
+        )
+
+    result = resolve_billing_ticket(ticket)
+
+    updated = ticket.model_copy(
+        update={
+            "status": result.status,
+            "reply": result.reply,
+            "refund_id": result.refund_id,
+            "refund_amount": result.amount,
         }
     )
     store.save(updated)

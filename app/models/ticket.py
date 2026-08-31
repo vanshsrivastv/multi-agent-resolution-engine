@@ -8,6 +8,7 @@ class TicketCreate(BaseModel):
     customer_email: EmailStr
     subject: str
     message: str
+    transaction_id: str | None = None
 
 
 class Ticket(TicketCreate):
@@ -19,6 +20,8 @@ class Ticket(TicketCreate):
     reply: str | None = None
     resolved_via: str | None = None
     match_score: float | None = None
+    refund_id: str | None = None
+    refund_amount: int | None = None
 
     @classmethod
     def from_create(cls, data: TicketCreate) -> "Ticket":
