@@ -7,7 +7,7 @@ from app.payments import create_order, get_order
 
 
 def main():
-    print("Creating a ₹1000.00 test order...")
+    print("Creating a Rs.1000.00 test order...")
     order_id = create_order(amount=100000)
     print(f"Created: {order_id}")
 

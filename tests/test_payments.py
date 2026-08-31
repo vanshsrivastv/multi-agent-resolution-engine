@@ -59,11 +59,13 @@ def test_refund_payment_returns_status(monkeypatch):
     monkeypatch.setenv("RAZORPAY_KEY_SECRET", "fake_secret")
 
     fake_client = MagicMock()
+    fake_client.payment.fetch.return_value = {"id": "pay_123", "amount": 100000}
     fake_client.payment.refund.return_value = {"id": "rfnd_123", "status": "processed"}
 
     with patch("app.payments.razorpay.Client", return_value=fake_client):
         result = refund_payment("pay_123")
 
+    fake_client.payment.refund.assert_called_once_with("pay_123", {"amount": 100000})
     assert result == {"id": "rfnd_123", "status": "processed"}
 
 

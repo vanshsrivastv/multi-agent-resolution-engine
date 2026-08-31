@@ -42,7 +42,9 @@ def get_payment(payment_id: str) -> dict:
 
 
 def refund_payment(payment_id: str) -> dict:
-    refund = _client().payment.refund(payment_id, {})
+    client = _client()
+    payment = client.payment.fetch(payment_id)
+    refund = client.payment.refund(payment_id, {"amount": payment["amount"]})
     return {"id": refund["id"], "status": refund["status"]}
 
 
