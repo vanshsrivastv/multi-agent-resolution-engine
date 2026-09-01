@@ -181,3 +181,33 @@ def test_billing_endpoint_rejects_non_billing_ticket():
 def test_billing_endpoint_unknown_ticket_returns_404():
     response = client.post("/tickets/does-not-exist/billing")
     assert response.status_code == 404
+
+
+def test_process_endpoint_runs_full_pipeline():
+    created = client.post(
+        "/tickets",
+        json={
+            "customer_email": "user@example.com",
+            "subject": "App crashes",
+            "message": "It closes right after opening.",
+        },
+    ).json()
+
+    fake_triage = TriageResult(category="technical", confidence=0.97, reasoning="crash")
+    fake_resolution = TechSupportResult(
+        status="resolved", reply="Try restarting.", source_doc="doc1", match_score=0.8
+    )
+    with patch("app.graph.classify_ticket", return_value=fake_triage):
+        with patch("app.graph.resolve_technical_ticket", return_value=fake_resolution):
+            response = client.post(f"/tickets/{created['ticket_id']}/process")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["category"] == "technical"
+    assert body["status"] == "resolved"
+    assert body["reply"] == "Try restarting."
+
+
+def test_process_endpoint_unknown_ticket_returns_404():
+    response = client.post("/tickets/does-not-exist/process")
+    assert response.status_code == 404

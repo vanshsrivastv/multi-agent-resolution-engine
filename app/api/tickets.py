@@ -4,6 +4,7 @@ from app import store
 from app.agents.billing import resolve_billing_ticket
 from app.agents.tech_support import resolve_technical_ticket
 from app.agents.triage import TriageError, classify_ticket
+from app.graph import run_pipeline
 from app.models.ticket import Ticket, TicketCreate
 
 router = APIRouter()
@@ -69,6 +70,17 @@ def tech_support_ticket(ticket_id: str) -> Ticket:
     )
     store.save(updated)
     return updated
+
+
+@router.post("/tickets/{ticket_id}/process")
+def process_ticket(ticket_id: str) -> Ticket:
+    ticket = store.get(ticket_id)
+    if ticket is None:
+        raise HTTPException(status_code=404, detail="ticket not found")
+
+    final_ticket = run_pipeline(ticket)
+    store.save(final_ticket)
+    return final_ticket
 
 
 @router.post("/tickets/{ticket_id}/billing")
