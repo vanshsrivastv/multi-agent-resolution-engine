@@ -4,7 +4,7 @@ from app import store
 from app.agents.billing import resolve_billing_ticket
 from app.agents.tech_support import resolve_technical_ticket
 from app.agents.triage import TriageError, classify_ticket
-from app.graph import run_pipeline
+from app.graph import ALREADY_HANDLED_STATUSES, run_pipeline
 from app.models.ticket import Ticket, TicketCreate
 
 router = APIRouter()
@@ -77,6 +77,12 @@ def process_ticket(ticket_id: str) -> Ticket:
     ticket = store.get(ticket_id)
     if ticket is None:
         raise HTTPException(status_code=404, detail="ticket not found")
+
+    # Already resolved, or already paused waiting on a human - don't
+    # re-run the pipeline (would waste an LLM call, or confuse the graph's
+    # paused state for a ticket already sitting at an interrupt).
+    if ticket.status in ALREADY_HANDLED_STATUSES:
+        return ticket
 
     final_ticket = run_pipeline(ticket)
     store.save(final_ticket)
