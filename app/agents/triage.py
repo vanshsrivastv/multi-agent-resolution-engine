@@ -5,6 +5,7 @@ from pydantic import BaseModel, ValidationError
 
 from app.llm import ask
 from app.models.ticket import Ticket
+from app.retry import with_retries
 
 Category = Literal["billing", "technical", "general"]
 
@@ -30,7 +31,7 @@ class TriageError(Exception):
     """The LLM's response could not be parsed into a valid TriageResult."""
 
 
-def classify_ticket(ticket: Ticket) -> TriageResult:
+def _ask_and_parse(ticket: Ticket) -> TriageResult:
     user_message = f"Subject: {ticket.subject}\n\nMessage: {ticket.message}"
     raw = ask(system_prompt=SYSTEM_PROMPT, user_message=user_message)
 
@@ -39,3 +40,10 @@ def classify_ticket(ticket: Ticket) -> TriageResult:
         return TriageResult(**data)
     except (json.JSONDecodeError, ValidationError) as e:
         raise TriageError(f"could not parse triage response: {raw!r}") from e
+
+
+def classify_ticket(ticket: Ticket) -> TriageResult:
+    # A malformed response is worth retrying (a fresh sample may well
+    # parse fine) - this is separate from ask()'s own network-level
+    # retries, which happen underneath this on every attempt too.
+    return with_retries(lambda: _ask_and_parse(ticket), (TriageError,))

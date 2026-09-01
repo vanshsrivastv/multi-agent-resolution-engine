@@ -1,5 +1,8 @@
 from unittest.mock import patch
 
+import requests
+from razorpay.errors import BadRequestError
+
 from app.agents.billing import resolve_billing_ticket
 from app.models.ticket import Ticket
 
@@ -83,3 +86,50 @@ def test_needs_human_when_refund_api_fails():
             result = resolve_billing_ticket(make_ticket())
 
     assert result.status == "needs_human"
+
+
+def test_refund_never_retried_on_permanent_error():
+    fake_payment = {"id": "pay_123", "status": "captured", "amount": 100000, "currency": "INR"}
+
+    with patch("app.agents.billing.get_payment", return_value=fake_payment) as mock_get:
+        with patch(
+            "app.agents.billing.refund_payment", side_effect=BadRequestError("insufficient balance")
+        ) as mock_refund:
+            result = resolve_billing_ticket(make_ticket())
+
+    assert result.status == "needs_human"
+    assert mock_refund.call_count == 1  # never retried
+    assert mock_get.call_count == 1  # only the initial lookup, no state re-check
+
+
+def test_refund_timeout_then_confirmed_not_yet_refunded_retries_once():
+    fake_payment = {"id": "pay_123", "status": "captured", "amount": 100000, "currency": "INR"}
+    fake_refund = {"id": "rfnd_2", "status": "processed"}
+
+    with patch("app.agents.billing.get_payment", side_effect=[fake_payment, fake_payment]) as mock_get:
+        with patch(
+            "app.agents.billing.refund_payment", side_effect=[requests.Timeout("timed out"), fake_refund]
+        ) as mock_refund:
+            result = resolve_billing_ticket(make_ticket())
+
+    assert result.status == "refunded"
+    assert result.refund_id == "rfnd_2"
+    assert mock_refund.call_count == 2  # first attempt timed out, retried once after checking state
+    assert mock_get.call_count == 2  # initial lookup + the post-timeout state check
+
+
+def test_refund_timeout_then_confirmed_already_refunded_does_not_retry_refund():
+    fake_payment_captured = {"id": "pay_123", "status": "captured", "amount": 100000, "currency": "INR"}
+    fake_payment_refunded = {"id": "pay_123", "status": "refunded", "amount": 100000, "currency": "INR"}
+
+    with patch(
+        "app.agents.billing.get_payment", side_effect=[fake_payment_captured, fake_payment_refunded]
+    ):
+        with patch(
+            "app.agents.billing.refund_payment", side_effect=requests.Timeout("timed out")
+        ) as mock_refund:
+            result = resolve_billing_ticket(make_ticket())
+
+    assert result.status == "refunded"
+    assert result.refund_id is None  # not recoverable from this path, honestly reported as unknown
+    assert mock_refund.call_count == 1  # confirmed already refunded - never retried the refund call

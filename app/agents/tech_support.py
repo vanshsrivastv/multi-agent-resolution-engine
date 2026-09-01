@@ -27,7 +27,13 @@ class TechSupportResult(BaseModel):
 
 def resolve_technical_ticket(ticket: Ticket) -> TechSupportResult:
     query = f"{ticket.subject}\n{ticket.message}"
-    results = search(query, top_k=1)
+
+    try:
+        results = search(query, top_k=1)
+    except Exception:
+        # search()/ask() already retry transient failures internally; if we
+        # get here, retries were exhausted or the failure was permanent.
+        return TechSupportResult(status="needs_human")
 
     if not results or results[0]["score"] < MATCH_THRESHOLD:
         return TechSupportResult(
@@ -41,7 +47,11 @@ def resolve_technical_ticket(ticket: Ticket) -> TechSupportResult:
         f"Customer message: {ticket.message}\n\n"
         f"Documentation:\n{top['text']}"
     )
-    reply = ask(system_prompt=SYSTEM_PROMPT, user_message=user_message)
+
+    try:
+        reply = ask(system_prompt=SYSTEM_PROMPT, user_message=user_message)
+    except Exception:
+        return TechSupportResult(status="needs_human", match_score=top["score"])
 
     return TechSupportResult(
         status="resolved",

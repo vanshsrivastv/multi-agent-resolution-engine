@@ -6,7 +6,9 @@ VECTOR_SIZE = 384
 
 
 def get_client() -> QdrantClient:
-    return QdrantClient(url="http://localhost:6333")
+    # Without an explicit timeout, the client can hang far longer than our
+    # own retry backoff expects when Qdrant is unreachable.
+    return QdrantClient(url="http://localhost:6333", timeout=5)
 
 
 def ensure_collection(client: QdrantClient) -> None:

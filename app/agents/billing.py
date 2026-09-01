@@ -1,9 +1,17 @@
 from typing import Literal
 
+import requests
 from pydantic import BaseModel
+from razorpay.errors import GatewayError, ServerError
 
 from app.models.ticket import Ticket
 from app.payments import get_payment, refund_payment
+from app.retry import with_retries
+
+# BadRequestError (invalid transaction id, insufficient balance, wrong
+# payment state, etc.) is deliberately NOT here - it's permanent, retrying
+# the same request will not change the outcome.
+PAYMENT_TRANSIENT = (ServerError, GatewayError, requests.Timeout, requests.ConnectionError)
 
 
 class BillingResult(BaseModel):
@@ -12,6 +20,23 @@ class BillingResult(BaseModel):
     refund_id: str | None = None
     amount: int | None = None
     reason: str | None = None
+
+
+def _refund_with_timeout_safe_retry(transaction_id: str) -> dict:
+    try:
+        return refund_payment(transaction_id)
+    except PAYMENT_TRANSIENT:
+        # We don't know whether the refund actually went through before the
+        # connection/timeout failure - never blindly retry a refund. Check
+        # the provider's own record first.
+        current = get_payment(transaction_id)
+        if current["status"] == "refunded":
+            # It succeeded despite the failure on our end. We don't have
+            # the refund object from that original call, so refund_id is
+            # left unknown here rather than guessed.
+            return {"id": None, "status": "processed"}
+        # Confirmed no refund happened yet - now it's safe to try once more.
+        return refund_payment(transaction_id)
 
 
 def resolve_billing_ticket(ticket: Ticket) -> BillingResult:
@@ -29,7 +54,7 @@ def resolve_billing_ticket(ticket: Ticket) -> BillingResult:
         )
 
     try:
-        payment = get_payment(ticket.transaction_id)
+        payment = with_retries(lambda: get_payment(ticket.transaction_id), PAYMENT_TRANSIENT)
     except Exception as e:
         return BillingResult(status="needs_human", reason=f"could not fetch transaction: {e}")
 
@@ -49,14 +74,15 @@ def resolve_billing_ticket(ticket: Ticket) -> BillingResult:
         )
 
     try:
-        refund = refund_payment(ticket.transaction_id)
+        refund = _refund_with_timeout_safe_retry(ticket.transaction_id)
     except Exception as e:
         return BillingResult(status="needs_human", reason=f"refund failed: {e}")
 
     amount_display = payment["amount"] / 100
+    reference_note = f" Refund reference: {refund['id']}." if refund["id"] else ""
     return BillingResult(
         status="refunded",
-        reply=f"Your payment of Rs.{amount_display:.2f} has been refunded. Refund reference: {refund['id']}.",
+        reply=f"Your payment of Rs.{amount_display:.2f} has been refunded.{reference_note}",
         refund_id=refund["id"],
         amount=payment["amount"],
     )
