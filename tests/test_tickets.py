@@ -297,5 +297,6 @@ def test_slack_actions_approve_resumes_ticket(monkeypatch):
     )
 
     assert response.status_code == 200
+    assert response.json()["replace_original"] is True
     fetched = client.get(f"/tickets/{created['ticket_id']}")
     assert fetched.json()["status"] == "resolved_by_human"

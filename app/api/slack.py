@@ -34,4 +34,10 @@ async def slack_actions(request: Request):
     ticket = resume_pipeline(ticket_id, decision)
     store.save(ticket)
 
-    return {"text": f"Ticket `{ticket_id}` marked *{ticket.status}*."}
+    # replace_original swaps the message's own content (including removing
+    # the buttons) instead of just posting a confirmation alongside them -
+    # without it, the buttons stay clickable forever even after resolution.
+    return {
+        "replace_original": True,
+        "text": f"Ticket `{ticket_id}` marked *{ticket.status}*.",
+    }
