@@ -212,5 +212,219 @@
     "message": "not sure how to explain but yeah",
     "expected_category": null,
     "expected_status": "needs_human"
+  },
+  {
+    "id": "t31",
+    "subject": "403 forbidden",
+    "message": "I'm getting a 403 forbidden error even though my API key should have access.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t32",
+    "subject": "Random 500 errors",
+    "message": "The API keeps returning error 500 and it's not consistent.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t33",
+    "subject": "Unauthorized error",
+    "message": "Getting an unauthorized error, not sure why the API key stopped working.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t34",
+    "subject": "Can't authenticate",
+    "message": "The app throws an error and crashes every time I try to authenticate.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t35",
+    "subject": "No reset link",
+    "message": "I never got the link to reset my password after requesting it twice.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t36",
+    "subject": "Tasks don't update",
+    "message": "My tasks don't update between my two devices even after waiting a while.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t37",
+    "subject": "Force closes on launch",
+    "message": "As soon as I launch the app it force closes immediately.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t38",
+    "subject": "Verification code never works",
+    "message": "The verification code from my authenticator app never works, always says invalid.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t39",
+    "subject": "Search returns nothing",
+    "message": "The search bar doesn't return any results no matter what I type.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t40",
+    "subject": "No notifications",
+    "message": "Push notifications stopped coming through on my phone entirely.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t41",
+    "subject": "App is slow",
+    "message": "The app is extremely slow to load on my older device.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t42",
+    "subject": "Can't upload photo",
+    "message": "I can't upload a profile picture, it just spins forever and never finishes.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t43",
+    "subject": "Charged twice again",
+    "message": "You already took my money twice for this, please fix it.",
+    "transaction_id": "pay_TWHOkjBo2POcAD",
+    "expected_category": "billing",
+    "expected_status": "already_refunded"
+  },
+  {
+    "id": "t44",
+    "subject": "Refund status",
+    "message": "Can you check on the refund status for my order please?",
+    "transaction_id": "pay_TWHOkjBo2POcAD",
+    "expected_category": "billing",
+    "expected_status": "already_refunded"
+  },
+  {
+    "id": "t45",
+    "subject": "Failed transaction",
+    "message": "My transaction seems to have failed, please look into a refund for me.",
+    "transaction_id": "pay_yet_another_fake_777",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t46",
+    "subject": "Cancel and refund",
+    "message": "I'd like to cancel my subscription and get a refund for this month.",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t47",
+    "subject": "Billing error",
+    "message": "There's a billing error on my account, please correct it as soon as possible.",
+    "transaction_id": "pay_fake_id_555",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t48",
+    "subject": "Delete account",
+    "message": "How do I delete my account permanently?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t49",
+    "subject": "Referral program",
+    "message": "Do you have a referral program I could join?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t50",
+    "subject": "Security concern",
+    "message": "I think there's a security vulnerability in your app, who do I report it to?",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t51",
+    "subject": "Payment methods",
+    "message": "What payment methods do you accept?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t52",
+    "subject": "UI feedback",
+    "message": "Just wanted to give some feedback on the new UI design, looks great.",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t53",
+    "subject": "test",
+    "message": "testing 123",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t54",
+    "subject": "hello",
+    "message": "anyone there?",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t55",
+    "subject": ".",
+    "message": ".",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t56",
+    "subject": "fix it",
+    "message": "you know what i mean",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t57",
+    "subject": "!!!",
+    "message": "cant believe this happened",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t58",
+    "subject": "Rate limited",
+    "message": "Every request I send gets rate limited with status code 429.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t59",
+    "subject": "Sync stopped working",
+    "message": "Nothing syncs between my devices anymore, it just stopped one day.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t60",
+    "subject": "Offline use",
+    "message": "Can I use the app offline?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
   }
 ]
