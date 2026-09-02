@@ -1,6 +1,7 @@
 from typing import Literal
 
 import requests
+from langsmith import traceable
 from pydantic import BaseModel
 from razorpay.errors import GatewayError, ServerError
 
@@ -39,6 +40,7 @@ def _refund_with_timeout_safe_retry(transaction_id: str) -> dict:
         return refund_payment(transaction_id)
 
 
+@traceable(run_type="chain", name="billing_agent")
 def resolve_billing_ticket(ticket: Ticket) -> BillingResult:
     if not ticket.transaction_id:
         return BillingResult(status="needs_human", reason="ticket has no transaction_id")

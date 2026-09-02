@@ -1,6 +1,7 @@
 import json
 from typing import Literal
 
+from langsmith import traceable
 from pydantic import BaseModel, ValidationError
 
 from app.llm import ask
@@ -42,6 +43,7 @@ def _ask_and_parse(ticket: Ticket) -> TriageResult:
         raise TriageError(f"could not parse triage response: {raw!r}") from e
 
 
+@traceable(run_type="chain", name="triage_agent")
 def classify_ticket(ticket: Ticket) -> TriageResult:
     # A malformed response is worth retrying (a fresh sample may well
     # parse fine) - this is separate from ask()'s own network-level

@@ -1,3 +1,4 @@
+from langsmith import traceable
 from qdrant_client.http.exceptions import ResponseHandlingException
 
 from app.rag.embeddings import embed
@@ -9,6 +10,7 @@ from app.retry import with_retries
 QDRANT_TRANSIENT = (ResponseHandlingException,)
 
 
+@traceable(run_type="retriever", name="qdrant_search")
 def search(query: str, top_k: int = 3) -> list[dict]:
     client = get_client()
     query_vector = embed([query])[0]

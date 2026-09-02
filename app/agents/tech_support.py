@@ -1,5 +1,6 @@
 from typing import Literal
 
+from langsmith import traceable
 from pydantic import BaseModel
 
 from app.llm import ask
@@ -25,6 +26,7 @@ class TechSupportResult(BaseModel):
     match_score: float | None = None
 
 
+@traceable(run_type="chain", name="tech_support_agent")
 def resolve_technical_ticket(ticket: Ticket) -> TechSupportResult:
     query = f"{ticket.subject}\n{ticket.message}"
 
