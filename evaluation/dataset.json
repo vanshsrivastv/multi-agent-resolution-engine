@@ -1,0 +1,216 @@
+[
+  {
+    "id": "t01",
+    "subject": "Login fails",
+    "message": "I keep getting an error 500 whenever I try to log into my account.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t02",
+    "subject": "Can't sign in",
+    "message": "Every time I attempt to sign in the app throws an error and won't let me in.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t03",
+    "subject": "Reset email never arrives",
+    "message": "I requested a password reset three times and never received any email.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t04",
+    "subject": "Data not syncing",
+    "message": "Changes I make on my phone don't show up on my laptop at all.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t05",
+    "subject": "App closes immediately",
+    "message": "The app shuts down the instant I tap the icon, before anything loads.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t06",
+    "subject": "2FA code rejected",
+    "message": "My six digit authenticator code is always marked invalid no matter what.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t07",
+    "subject": "Getting 401 error",
+    "message": "Our integration keeps receiving a 401 unauthorized error when calling your API.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t08",
+    "subject": "429 too many requests",
+    "message": "We're getting rate limited constantly and don't know why.",
+    "expected_category": "technical",
+    "expected_status": "resolved"
+  },
+  {
+    "id": "t09",
+    "subject": "Printer won't connect",
+    "message": "My printer keeps disconnecting from the wifi network and I can't print anything.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t10",
+    "subject": "Dark mode broken",
+    "message": "The dark mode theme shows white text on a white background on my tablet.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t11",
+    "subject": "Export feature missing",
+    "message": "I can't find any option to export my data to CSV anywhere in the app.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t12",
+    "subject": "Bluetooth pairing fails",
+    "message": "The app won't pair with my bluetooth headset no matter what I try.",
+    "expected_category": "technical",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t13",
+    "subject": "Refund request",
+    "message": "I was charged twice for my order, please refund me.",
+    "transaction_id": "pay_TWHOkjBo2POcAD",
+    "expected_category": "billing",
+    "expected_status": "already_refunded"
+  },
+  {
+    "id": "t14",
+    "subject": "Money back please",
+    "message": "Please give me my money back for this charge, it wasn't supposed to go through.",
+    "transaction_id": "pay_TWHOkjBo2POcAD",
+    "expected_category": "billing",
+    "expected_status": "already_refunded"
+  },
+  {
+    "id": "t15",
+    "subject": "Refund my payment",
+    "message": "Refund my payment please, something went wrong with this transaction.",
+    "transaction_id": "pay_totally_fake_id_999",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t16",
+    "subject": "Need a refund",
+    "message": "I want a refund but I don't have my order number handy right now.",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t17",
+    "subject": "Wrong charge",
+    "message": "This charge on my account is wrong, I need it reversed immediately.",
+    "transaction_id": "pay_another_fake_id_888",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t18",
+    "subject": "Feedback",
+    "message": "Love the new update, the app feels so much faster now!",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t19",
+    "subject": "Question",
+    "message": "Do you guys ship internationally?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t20",
+    "subject": "Business hours",
+    "message": "What are your customer support business hours?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t21",
+    "subject": "Thanks",
+    "message": "Just wanted to say thanks for the great support you gave me last time.",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t22",
+    "subject": "Careers",
+    "message": "Are you hiring developers right now? I'd love to apply.",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t23",
+    "subject": "Language setting",
+    "message": "How do I change my account language to French?",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t24",
+    "subject": "Annual discount",
+    "message": "Can I get a discount for paying annually instead of monthly?",
+    "expected_category": "billing",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t25",
+    "subject": "Checking in",
+    "message": "Just checking in, no issue here, love your work overall.",
+    "expected_category": "general",
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t26",
+    "subject": "help",
+    "message": "its not working",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t27",
+    "subject": "issue",
+    "message": "?",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t28",
+    "subject": "Something is wrong",
+    "message": "I don't know what happened but it's broken now.",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t29",
+    "subject": "URGENT",
+    "message": "please respond asap this is important",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  },
+  {
+    "id": "t30",
+    "subject": "idk",
+    "message": "not sure how to explain but yeah",
+    "expected_category": null,
+    "expected_status": "needs_human"
+  }
+]
