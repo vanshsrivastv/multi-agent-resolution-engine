@@ -6,6 +6,8 @@ Built incrementally as a learning project, with every external integration verif
 
 ## Architecture
 
+An editable version of this diagram is also available as an Excalidraw file: [`docs/architecture.excalidraw`](docs/architecture.excalidraw) — open it at [excalidraw.com](https://excalidraw.com) (File > Open). It shows the same system at a higher level (actors and external services, not every branch condition); the detailed state-flow below is the more precise reference for exact routing logic.
+
 ```mermaid
 flowchart TD
     A["Customer ticket<br/>(email, subject, message,<br/>optional transaction_id)"] --> B["POST /tickets/{id}/process"]
