@@ -6,7 +6,9 @@ Built incrementally as a learning project, with every external integration verif
 
 ## Architecture
 
-An editable version of this diagram is also available as an Excalidraw file: [`docs/architecture.excalidraw`](docs/architecture.excalidraw) — open it at [excalidraw.com](https://excalidraw.com) (File > Open). It shows the same system at a higher level (actors and external services, not every branch condition); the detailed state-flow below is the more precise reference for exact routing logic.
+![System architecture diagram](docs/architecture.svg)
+
+The system-level diagram above shows actors and external services (verified visually before committing, not just hand-guessed coordinates). An editable Excalidraw version of the same layout is also available: [`docs/architecture.excalidraw`](docs/architecture.excalidraw) — open it at [excalidraw.com](https://excalidraw.com) (File > Open); note that Excalidraw's own hand-drawn visual style reads less "corporate" than the SVG above even with sharp corners, which is a tool characteristic rather than a layout issue. The Mermaid diagram below is the more precise reference for exact routing logic (every branch condition, not just the high-level flow).
 
 ```mermaid
 flowchart TD

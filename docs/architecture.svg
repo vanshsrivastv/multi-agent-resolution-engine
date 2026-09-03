@@ -1,0 +1,132 @@
+<svg width="1400" height="1050" viewBox="0 0 1400 1050" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#495057"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c92a2a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="1050" fill="#ffffff"/>
+
+  <!-- band backgrounds -->
+  <rect x="30" y="470" width="1150" height="110" rx="8" fill="#f1f3f5"/>
+  <text x="45" y="490" font-size="12" fill="#868e96" font-weight="600" letter-spacing="1">SPECIALIST AGENTS</text>
+
+  <rect x="30" y="660" width="1150" height="130" rx="8" fill="#f1f3f5"/>
+  <text x="45" y="680" font-size="12" fill="#868e96" font-weight="600" letter-spacing="1">EXTERNAL SERVICES</text>
+
+  <!-- Customer -->
+  <rect x="610" y="20" width="180" height="60" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="700" y="56" font-size="15" fill="#212529" text-anchor="middle" font-weight="600">Customer</text>
+
+  <!-- API -->
+  <rect x="580" y="150" width="240" height="64" rx="6" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+  <text x="700" y="176" font-size="14" fill="#1971c2" text-anchor="middle" font-weight="600">FastAPI</text>
+  <text x="700" y="196" font-size="12.5" fill="#1971c2" text-anchor="middle" font-family="Consolas, monospace">POST /tickets/{id}/process</text>
+
+  <!-- Triage -->
+  <rect x="580" y="290" width="240" height="64" rx="6" fill="#f3f0ff" stroke="#7048e8" stroke-width="1.5"/>
+  <text x="700" y="316" font-size="14" fill="#5f3dc4" text-anchor="middle" font-weight="600">Triage Agent</text>
+  <text x="700" y="336" font-size="12.5" fill="#5f3dc4" text-anchor="middle">classifies + confidence (Groq)</text>
+
+  <!-- Tech Support -->
+  <rect x="80" y="500" width="240" height="60" rx="6" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+  <text x="200" y="536" font-size="14" fill="#2b8a3e" text-anchor="middle" font-weight="600">Tech Support Agent</text>
+
+  <!-- Escalation -->
+  <rect x="580" y="500" width="240" height="60" rx="6" fill="#fff5f5" stroke="#e03131" stroke-width="1.5"/>
+  <text x="700" y="525" font-size="14" fill="#c92a2a" text-anchor="middle" font-weight="600">Escalation</text>
+  <text x="700" y="543" font-size="12.5" fill="#c92a2a" text-anchor="middle">Human-in-the-loop</text>
+
+  <!-- Billing -->
+  <rect x="960" y="500" width="240" height="60" rx="6" fill="#fff9db" stroke="#e8ab00" stroke-width="1.5"/>
+  <text x="1080" y="536" font-size="14" fill="#996a00" text-anchor="middle" font-weight="600">Billing Agent</text>
+
+  <!-- Qdrant -->
+  <rect x="80" y="700" width="170" height="66" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="165" y="726" font-size="13.5" fill="#212529" text-anchor="middle" font-weight="600">Qdrant</text>
+  <text x="165" y="744" font-size="12" fill="#495057" text-anchor="middle">Vector DB</text>
+
+  <!-- Groq -->
+  <rect x="280" y="700" width="170" height="66" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="365" y="726" font-size="13.5" fill="#212529" text-anchor="middle" font-weight="600">Groq</text>
+  <text x="365" y="744" font-size="12" fill="#495057" text-anchor="middle">LLM</text>
+
+  <!-- Slack -->
+  <rect x="605" y="700" width="190" height="66" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="700" y="726" font-size="13.5" fill="#212529" text-anchor="middle" font-weight="600">Slack</text>
+  <text x="700" y="744" font-size="12" fill="#495057" text-anchor="middle">Approve / Reject buttons</text>
+
+  <!-- Razorpay -->
+  <rect x="995" y="700" width="170" height="66" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="1080" y="726" font-size="13.5" fill="#212529" text-anchor="middle" font-weight="600">Razorpay</text>
+  <text x="1080" y="744" font-size="12" fill="#495057" text-anchor="middle">Payments</text>
+
+  <!-- Human reviewer -->
+  <circle cx="890" cy="733" r="33" fill="#ffffff" stroke="#495057" stroke-width="1.5"/>
+  <text x="890" y="738" font-size="12" fill="#212529" text-anchor="middle" font-weight="600">Human</text>
+
+  <!-- LangSmith note -->
+  <rect x="1230" y="290" width="150" height="270" rx="6" fill="#ffffff" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="1305" y="315" font-size="13" fill="#495057" text-anchor="middle" font-weight="600">LangSmith</text>
+  <text x="1305" y="333" font-size="11.5" fill="#868e96" text-anchor="middle">Observability</text>
+  <text x="1305" y="365" font-size="11" fill="#868e96" text-anchor="middle">Every agent and</text>
+  <text x="1305" y="380" font-size="11" fill="#868e96" text-anchor="middle">graph node in this</text>
+  <text x="1305" y="395" font-size="11" fill="#868e96" text-anchor="middle">diagram is traced</text>
+  <text x="1305" y="410" font-size="11" fill="#868e96" text-anchor="middle">automatically -</text>
+  <text x="1305" y="425" font-size="11" fill="#868e96" text-anchor="middle">latency, cost, and</text>
+  <text x="1305" y="440" font-size="11" fill="#868e96" text-anchor="middle">reasoning steps.</text>
+
+  <!-- === connectors: main spine === -->
+  <line x1="700" y1="80" x2="700" y2="148" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="700" y1="214" x2="700" y2="288" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- === triage -> 3 branches, orthogonal tree === -->
+  <line x1="700" y1="354" x2="700" y2="425" stroke="#495057" stroke-width="1.5"/>
+  <line x1="200" y1="425" x2="1080" y2="425" stroke="#495057" stroke-width="1.5"/>
+  <line x1="200" y1="425" x2="200" y2="498" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="700" y1="425" x2="700" y2="498" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="1080" y1="425" x2="1080" y2="498" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="90" y="435" width="180" height="34" rx="4" fill="#ffffff" stroke="#2f9e44" stroke-width="1"/>
+  <text x="180" y="457" font-size="11.5" fill="#2b8a3e" text-anchor="middle">technical, confidence &#8805; 90%</text>
+
+  <rect x="608" y="435" width="184" height="34" rx="4" fill="#ffffff" stroke="#c92a2a" stroke-width="1"/>
+  <text x="700" y="457" font-size="11.5" fill="#c92a2a" text-anchor="middle">low confidence / general</text>
+
+  <rect x="990" y="435" width="180" height="34" rx="4" fill="#ffffff" stroke="#996a00" stroke-width="1"/>
+  <text x="1080" y="457" font-size="11.5" fill="#996a00" text-anchor="middle">billing, confidence &#8805; 90%</text>
+
+  <!-- === agent failure paths -> escalation (horizontal, same row) === -->
+  <line x1="320" y1="530" x2="578" y2="530" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowRed)"/>
+  <text x="450" y="522" font-size="11" fill="#c92a2a" text-anchor="middle">no confident doc match</text>
+
+  <line x1="958" y1="530" x2="822" y2="530" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowRed)"/>
+  <text x="890" y="522" font-size="11" fill="#c92a2a" text-anchor="middle">invalid ID / permanent failure</text>
+
+  <!-- === tech support -> qdrant + groq (orthogonal tree) === -->
+  <line x1="200" y1="560" x2="200" y2="622" stroke="#495057" stroke-width="1.5"/>
+  <line x1="165" y1="622" x2="365" y2="622" stroke="#495057" stroke-width="1.5"/>
+  <line x1="165" y1="622" x2="165" y2="698" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="365" y1="622" x2="365" y2="698" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="130" y="650" font-size="11" fill="#2b8a3e" text-anchor="middle">search</text>
+  <text x="400" y="650" font-size="11" fill="#2b8a3e" text-anchor="middle">generate reply</text>
+
+  <!-- === billing -> razorpay === -->
+  <line x1="1080" y1="560" x2="1080" y2="698" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="1130" y="632" font-size="11" fill="#996a00" text-anchor="middle">check + refund</text>
+
+  <!-- === escalation -> slack -> human -> escalation (loop) === -->
+  <line x1="680" y1="560" x2="680" y2="698" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="580" y="632" font-size="11" fill="#495057" text-anchor="middle">post message</text>
+
+  <line x1="795" y1="733" x2="853" y2="733" stroke="#495057" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="824" y="720" font-size="10.5" fill="#495057" text-anchor="middle">notifies</text>
+
+  <polyline points="890,700 890,560 826,560" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <rect x="900" y="600" width="180" height="46" rx="4" fill="#ffffff" stroke="#495057" stroke-width="1"/>
+  <text x="990" y="618" font-size="11" fill="#495057" text-anchor="middle">clicks Approve / Reject &#8594;</text>
+  <text x="990" y="634" font-size="11" fill="#495057" text-anchor="middle">resumes paused pipeline</text>
+</svg>
