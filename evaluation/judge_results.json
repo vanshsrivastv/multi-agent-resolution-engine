@@ -1,58 +1,58 @@
 [
   {
     "subject": "Getting a 429 error",
-    "reply": "Hi there,\n\nA\u202f429 status code means **\u201cToo Many Requests.\u201d** The API\u2019s rate limit has been exceeded. To resolve this, you should wait a short while and then retry the request, ideally using an exponential back\u2011off strategy. If you keep seeing 429 responses, consider batching your calls or reducing the request frequency.\n\nLet me know if you need any more help!",
+    "reply": "Hi there,\n\nA **429\u202fToo Many Requests** response means you\u2019ve exceeded the API\u2019s rate limit. To resolve it, wait a short time and then retry the request (using an exponential back\u2011off is recommended). If you keep seeing 429s, you may need to batch or space out your calls more.\n\nLet me know if you need any more details!",
     "source_doc": "api_error_codes",
     "grounded": true,
-    "explanation": "All claims about 429 meaning Too Many Requests, rate limit exceeded, waiting and retrying with backoff, and batching calls are supported by the source."
+    "explanation": "All statements about 429 rate limit, waiting, retrying with backoff, and batching are supported by the source"
   },
   {
     "subject": "App won't open",
-    "reply": "Hi there,\n\nI\u2019m sorry you\u2019re experiencing crashes right after opening the app. Please try the following steps:\n\n1. **Restart your device** \u2013 a lingering background process is often the cause.  \n2. **Make sure the app is updated** to the newest version (if a newer release is available).  \n3. If the crash persists, **uninstall and reinstall the app** to clear any corrupted cache.\n\nIf the app still closes immediately after a clean reinstall, it may be a device\u2011compatibility issue. In that case, please let us know your device model and OS version so we can pass the details to our engineering team.\n\nThanks for your patience, and let me know how it goes!",
+    "reply": "Hi there,\n\nIf the app is closing right after you open it, try these steps:\n\n1. **Restart your device** \u2013 a stale background process is often the cause.  \n2. **Make sure the app is on the newest version** \u2013 if a newer release is available, update it.  \n3. **Uninstall and then reinstall the app** \u2013 this removes any corrupted local cache.\n\nIf the crash still occurs after a clean reinstall on the latest version, it\u2019s likely a device\u2011compatibility issue. In that case, please let us know your device model and OS version so we can pass the details to our engineering team.",
     "source_doc": "app_crash_on_startup",
     "grounded": true,
-    "explanation": "All statements match the source document's troubleshooting steps and escalation info."
+    "explanation": "All statements match the source document; no unsupported claims are made."
   },
   {
     "subject": "Can't log in",
-    "reply": "Hi there,\n\nIf the login isn\u2019t succeeding even with the correct password, it\u2019s often due to a corrupted local session cache. Please try the following steps:\n\n1. **Log out completely** (or clear the app\u2019s local storage/cookies).  \n2. **Close the app fully** and then reopen it.  \n3. **Attempt to log in again** with your password.\n\nIf the login still fails after a fresh attempt, the session token may be stuck on our server side and will need a manual reset by our support team. Let me know if that happens, and I\u2019ll arrange for the reset.  \n\nThanks for your patience!",
+    "reply": "Hi there,\n\nIf the password is correct but you keep seeing a login failure, it\u2019s often caused by a corrupted local session cache. Please try the following steps:\n\n1. Log out completely\u202f\u2014\u202for clear the app\u2019s local storage/cookies.  \n2. Close the app fully and then reopen it.  \n3. Attempt to log in again.\n\nIf the problem continues after a fresh login attempt, the account\u2019s session token may be stuck on the server side and will require a manual reset. In that case, please let us know so we can reset the token for you.",
     "source_doc": "login_errors",
     "grounded": false,
-    "explanation": "Agent claims any login failure with correct password is often due to corrupted local cache, but source ties corrupted cache specifically to error 500 cases"
+    "explanation": "Agent adds claim about password being correct causing login failure, which is not stated in the source document."
   },
   {
     "subject": "Forgot my password",
-    "reply": "Hi there,\n\nTo reset your password, follow these steps:\n\n1. **Use the \u201cForgot password\u201d link** on the sign\u2011in page.  \n2. **Check your email** a few minutes after you request the reset:  \n   - Look in your spam/junk folder \u2013 the reset message often gets filtered there.  \n   - Make sure the email address on your account is spelled correctly.  \n3. **Wait a bit before trying again** \u2013 if you request a reset too many times, new emails are temporarily blocked. Wait at least 10\u202fminutes and then request another reset if needed.  \n4. **Verify your email address** \u2013 if the email on your account is still unverified, the reset link will not be sent even though the request appears to succeed.\n\nIf you still don\u2019t receive a reset email after trying these steps, let us know and we\u2019ll have a team member investigate further for you.",
+    "reply": "Hi there!  \n\nTo reset your password, use the **\u201cForgot password\u201d** link on the sign\u2011in page. After you submit your email address, follow these steps if you don\u2019t receive the reset email:\n\n1. **Check your spam/junk folder** \u2013 the email is often filtered there.  \n2. **Verify the email address** you entered is spelled correctly.  \n3. **Wait at least 10\u202fminutes** before trying again; multiple rapid requests can temporarily block new emails.  \n\nIf you still don\u2019t get a message, the email address on the account may be **unverified**. An unverified address can request a reset link, but the email will not be sent.\n\nLet me know if you need any more help!",
     "source_doc": "password_reset",
     "grounded": true,
-    "explanation": "All factual statements match the source; no unsupported claims are made."
+    "explanation": "All statements match the source document; no unsupported facts are added."
   },
   {
     "subject": "Data not syncing",
-    "reply": "Hi there!\n\nHere are the quick checks to get your phone and laptop back in sync:\n\n1. **Internet connection** \u2013 Make sure both devices are online.  \n2. **Manual sync** \u2013 Open **Settings\u202f>\u202fSync** and tap **Sync Now** on each device.  \n3. **Same account** \u2013 Verify that both devices are signed into the **same** account (sometimes a second account gets created by accident).\n\nSyncs can take up to ~2\u202fminutes under normal conditions. If it\u2019s been longer and a manual sync didn\u2019t help, the sync queue might be stuck on the server side. In that case, a support team member will need to clear it for you.\n\nLet me know if those steps help or if you need further assistance!",
+    "reply": "Hi there,\n\nIf your phone and laptop aren\u2019t showing the same data, try these steps:\n\n1. **Internet connection** \u2013 Make sure both devices are online.  \n2. **Manual sync** \u2013 Go to **Settings\u202f>\u202fSync** and tap **Sync Now** on each device.  \n3. **Same account** \u2013 Verify that both devices are signed into the *same* account (a second account created by mistake is the most common cause).\n\nSyncs can take up to 2\u202fminutes under normal conditions. If it\u2019s been longer than that and a manual sync didn\u2019t help, the account\u2019s sync queue may be stuck and would need to be cleared on the server side.\n\nLet me know if the manual sync works or if you need help clearing the server\u2011side queue.",
     "source_doc": "sync_issues",
     "grounded": true,
-    "explanation": "All statements match the source; no unsupported facts are added."
+    "explanation": "All steps and sync lag details match the source document; no unsupported claims are made."
   },
   {
     "subject": "Setting up 2FA",
-    "reply": "Hi there,\n\nI\u2019m sorry\u2014I don\u2019t have the specific steps for turning on two\u2011factor authentication in the documentation I have. A team member will reach out shortly to help you enable 2FA on your account. \n\nThanks for your patience!",
-    "source_doc": "two_factor_auth",
-    "grounded": false,
-    "explanation": "Agent claims they don't have specific steps for turning on 2FA in the documentation, which is not supported by the source text."
+    "reply": "Sure! To enable two\u2011factor authentication (2FA) on your account:\n\n1. Open **Account Settings** and go to **Security**.  \n2. Click **Enable Two-Factor Authentication**.  \n3. A QR code will appear\u2014scan it with an authenticator app such as Google Authenticator, Authy, or another similar app.  \n4. The app will generate a 6\u2011digit code; enter that code to confirm the setup.\n\nAfter this, you\u2019ll be prompted for a code from your authenticator app each time you log in from a new device. If you run into any issues with codes being rejected, you can refer to the troubleshooting article for rejected 2FA codes.",
+    "source_doc": "enabling_two_factor_auth",
+    "grounded": true,
+    "explanation": "All steps and details match the source document; no unsupported claims are made."
   },
   {
     "subject": "500 error on checkout",
-    "reply": "Hi there,\n\nI\u2019m sorry you\u2019re encountering a 500 error at checkout. The documentation we have only covers 500 errors that occur during login, which involve clearing the local session cache and re\u2011logging in. Since it doesn\u2019t include steps for a checkout\u2011related 500 error, I don\u2019t have a specific fix to share right now.\n\nA member of our support team will reach out shortly to investigate this issue further and get you back on track. Thank you for your patience!",
+    "reply": "Hi there,\n\nI\u2019m sorry you\u2019re seeing a 500 internal server error when you try to check out. The documentation I have only covers a 500 error that occurs during login and doesn\u2019t include information about checkout\u2011related errors. Because of that, I don\u2019t have a specific solution to share right now.\n\nIf you have any additional details or error messages, feel free to let me know and I\u2019ll do my best to help.",
     "source_doc": "login_errors",
-    "grounded": false,
-    "explanation": "Agent claims a support team member will contact the customer, which is not mentioned in the source document."
+    "grounded": true,
+    "explanation": "All statements align with the source which only addresses login 500 errors and provides no checkout info"
   },
   {
     "subject": "Can't reset password",
-    "reply": "Hi there,\n\nI\u2019m sorry you haven\u2019t received the reset email. Please try the following steps:\n\n1. **Check your spam/junk folder** \u2013 the reset message is often filtered there.  \n2. **Verify the email address** on your account is typed correctly.  \n3. **Wait at least 10\u202fminutes** before requesting another reset. Sending several requests in a row can temporarily block new emails.\n\nIf you still don\u2019t get the email, the address on the account may be **unverified**, which can cause the reset email to fail silently. In that case, you\u2019ll need to verify the email address (or have a support team member help you do so).\n\nLet me know if you need any further assistance!",
+    "reply": "Hi there,\n\nIf you haven\u2019t received the password\u2011reset email, please try the following steps:\n\n1. **Check your spam/junk folder** \u2013 the reset message is often filtered there.  \n2. **Verify the email address** you entered is spelled correctly for your account.  \n3. **Wait at least 10\u202fminutes** before requesting another reset. Multiple rapid requests can temporarily block new emails.\n\nIf those steps don\u2019t help, the email address on the account may be unverified. An unverified address can request a reset link, but the email will not be sent.\n\nLet me know if you need any further clarification.",
     "source_doc": "password_reset",
     "grounded": true,
-    "explanation": "All statements align with the source; the advice to verify the email follows logically from the unverified email note."
+    "explanation": "All statements match the source document; no unsupported claims are made."
   }
 ]

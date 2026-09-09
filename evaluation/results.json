@@ -9,19 +9,19 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 6.77
+    "latency_seconds": 8.2
   },
   {
     "id": "t02",
     "subject": "Can't sign in",
     "expected_category": "technical",
     "actual_category": "technical",
-    "confidence": 0.96,
+    "confidence": 0.97,
     "expected_status": "resolved",
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.77
+    "latency_seconds": 2.21
   },
   {
     "id": "t03",
@@ -33,19 +33,19 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.91
+    "latency_seconds": 2.11
   },
   {
     "id": "t04",
     "subject": "Data not syncing",
     "expected_category": "technical",
     "actual_category": "technical",
-    "confidence": 0.97,
+    "confidence": 0.96,
     "expected_status": "resolved",
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.92
+    "latency_seconds": 2.47
   },
   {
     "id": "t05",
@@ -57,11 +57,23 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.71
+    "latency_seconds": 2.75
   },
   {
     "id": "t06",
     "subject": "2FA code rejected",
+    "expected_category": "technical",
+    "actual_category": "technical",
+    "confidence": 0.97,
+    "expected_status": "resolved",
+    "actual_status": "resolved",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.8
+  },
+  {
+    "id": "t07",
+    "subject": "Getting 401 error",
     "expected_category": "technical",
     "actual_category": "technical",
     "confidence": 0.96,
@@ -69,19 +81,7 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.84
-  },
-  {
-    "id": "t07",
-    "subject": "Getting 401 error",
-    "expected_category": "technical",
-    "actual_category": "technical",
-    "confidence": 0.98,
-    "expected_status": "resolved",
-    "actual_status": "resolved",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 1.59
+    "latency_seconds": 2.4
   },
   {
     "id": "t08",
@@ -93,11 +93,23 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": false,
-    "latency_seconds": 0.8
+    "latency_seconds": 1.31
   },
   {
     "id": "t09",
     "subject": "Printer won't connect",
+    "expected_category": "technical",
+    "actual_category": "technical",
+    "confidence": 0.95,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.28
+  },
+  {
+    "id": "t10",
+    "subject": "Dark mode broken",
     "expected_category": "technical",
     "actual_category": "technical",
     "confidence": 0.97,
@@ -105,19 +117,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.84
-  },
-  {
-    "id": "t10",
-    "subject": "Dark mode broken",
-    "expected_category": "technical",
-    "actual_category": "technical",
-    "confidence": 0.96,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 0.89
+    "latency_seconds": 1.33
   },
   {
     "id": "t11",
@@ -129,7 +129,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.85
+    "latency_seconds": 1.43
   },
   {
     "id": "t12",
@@ -141,7 +141,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.92
+    "latency_seconds": 1.17
   },
   {
     "id": "t13",
@@ -153,7 +153,7 @@
     "actual_status": "already_refunded",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.46
+    "latency_seconds": 2.22
   },
   {
     "id": "t14",
@@ -165,35 +165,11 @@
     "actual_status": "already_refunded",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.36
+    "latency_seconds": 2.47
   },
   {
     "id": "t15",
     "subject": "Refund my payment",
-    "expected_category": "billing",
-    "actual_category": "billing",
-    "confidence": 0.99,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 1.75
-  },
-  {
-    "id": "t16",
-    "subject": "Need a refund",
-    "expected_category": "billing",
-    "actual_category": "billing",
-    "confidence": 0.97,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 0.71
-  },
-  {
-    "id": "t17",
-    "subject": "Wrong charge",
     "expected_category": "billing",
     "actual_category": "billing",
     "confidence": 0.98,
@@ -201,35 +177,35 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.91
+    "latency_seconds": 1.68
+  },
+  {
+    "id": "t16",
+    "subject": "Need a refund",
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "confidence": 0.99,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.4
+  },
+  {
+    "id": "t17",
+    "subject": "Wrong charge",
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "confidence": 0.99,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 2.18
   },
   {
     "id": "t18",
     "subject": "Feedback",
-    "expected_category": "general",
-    "actual_category": "general",
-    "confidence": 0.99,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 0.69
-  },
-  {
-    "id": "t19",
-    "subject": "Question",
-    "expected_category": "general",
-    "actual_category": "general",
-    "confidence": 0.99,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 0.78
-  },
-  {
-    "id": "t20",
-    "subject": "Business hours",
     "expected_category": "general",
     "actual_category": "general",
     "confidence": 0.97,
@@ -237,7 +213,31 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.82
+    "latency_seconds": 1.0
+  },
+  {
+    "id": "t19",
+    "subject": "Question",
+    "expected_category": "general",
+    "actual_category": "general",
+    "confidence": 0.98,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.01
+  },
+  {
+    "id": "t20",
+    "subject": "Business hours",
+    "expected_category": "general",
+    "actual_category": "general",
+    "confidence": 0.99,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.14
   },
   {
     "id": "t21",
@@ -249,31 +249,31 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.74
+    "latency_seconds": 0.99
   },
   {
     "id": "t22",
     "subject": "Careers",
     "expected_category": "general",
     "actual_category": "general",
-    "confidence": 0.99,
+    "confidence": 0.97,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.69
+    "latency_seconds": 1.03
   },
   {
     "id": "t23",
     "subject": "Language setting",
     "expected_category": "general",
     "actual_category": "general",
-    "confidence": 0.95,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.66
+    "latency_seconds": 1.1
   },
   {
     "id": "t24",
@@ -285,7 +285,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 0.75
+    "latency_seconds": 0.84
   },
   {
     "id": "t25",
@@ -297,23 +297,59 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.8
+    "latency_seconds": 1.13
   },
   {
     "id": "t26",
     "subject": "help",
     "expected_category": null,
-    "actual_category": "technical",
-    "confidence": 0.65,
+    "actual_category": "general",
+    "confidence": 0.73,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 3.06
+    "latency_seconds": 1.43
   },
   {
     "id": "t27",
     "subject": "issue",
+    "expected_category": null,
+    "actual_category": "general",
+    "confidence": 0.9,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 1.23
+  },
+  {
+    "id": "t28",
+    "subject": "Something is wrong",
+    "expected_category": null,
+    "actual_category": "general",
+    "confidence": 0.88,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 3.63
+  },
+  {
+    "id": "t29",
+    "subject": "URGENT",
+    "expected_category": null,
+    "actual_category": "general",
+    "confidence": 0.96,
+    "expected_status": "needs_human",
+    "actual_status": "needs_human",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 3.33
+  },
+  {
+    "id": "t30",
+    "subject": "idk",
     "expected_category": null,
     "actual_category": "general",
     "confidence": 0.95,
@@ -321,83 +357,11 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.63
-  },
-  {
-    "id": "t28",
-    "subject": "Something is wrong",
-    "expected_category": null,
-    "actual_category": "technical",
-    "confidence": 0.8,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 2.8
-  },
-  {
-    "id": "t29",
-    "subject": "URGENT",
-    "expected_category": null,
-    "actual_category": "general",
-    "confidence": 0.93,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 2.75
-  },
-  {
-    "id": "t30",
-    "subject": "idk",
-    "expected_category": null,
-    "actual_category": "general",
-    "confidence": 0.96,
-    "expected_status": "needs_human",
-    "actual_status": "needs_human",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 2.76
+    "latency_seconds": 3.38
   },
   {
     "id": "t31",
     "subject": "403 forbidden",
-    "expected_category": "technical",
-    "actual_category": "technical",
-    "confidence": 0.96,
-    "expected_status": "resolved",
-    "actual_status": "resolved",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 6.13
-  },
-  {
-    "id": "t32",
-    "subject": "Random 500 errors",
-    "expected_category": "technical",
-    "actual_category": "technical",
-    "confidence": 0.96,
-    "expected_status": "resolved",
-    "actual_status": "resolved",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 6.04
-  },
-  {
-    "id": "t33",
-    "subject": "Unauthorized error",
-    "expected_category": "technical",
-    "actual_category": "technical",
-    "confidence": 0.96,
-    "expected_status": "resolved",
-    "actual_status": "resolved",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 6.15
-  },
-  {
-    "id": "t34",
-    "subject": "Can't authenticate",
     "expected_category": "technical",
     "actual_category": "technical",
     "confidence": 0.97,
@@ -405,7 +369,43 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 5.83
+    "latency_seconds": 6.46
+  },
+  {
+    "id": "t32",
+    "subject": "Random 500 errors",
+    "expected_category": "technical",
+    "actual_category": "technical",
+    "confidence": 0.97,
+    "expected_status": "resolved",
+    "actual_status": "resolved",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 6.95
+  },
+  {
+    "id": "t33",
+    "subject": "Unauthorized error",
+    "expected_category": "technical",
+    "actual_category": "technical",
+    "confidence": 0.97,
+    "expected_status": "resolved",
+    "actual_status": "resolved",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 6.7
+  },
+  {
+    "id": "t34",
+    "subject": "Can't authenticate",
+    "expected_category": "technical",
+    "actual_category": "technical",
+    "confidence": 0.96,
+    "expected_status": "resolved",
+    "actual_status": "resolved",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 6.79
   },
   {
     "id": "t35",
@@ -417,7 +417,7 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 5.94
+    "latency_seconds": 7.4
   },
   {
     "id": "t36",
@@ -429,7 +429,7 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 5.97
+    "latency_seconds": 7.47
   },
   {
     "id": "t37",
@@ -441,7 +441,7 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 5.96
+    "latency_seconds": 7.51
   },
   {
     "id": "t38",
@@ -453,7 +453,7 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 6.21
+    "latency_seconds": 4.82
   },
   {
     "id": "t39",
@@ -465,7 +465,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.93
+    "latency_seconds": 3.41
   },
   {
     "id": "t40",
@@ -477,19 +477,19 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.96
+    "latency_seconds": 3.44
   },
   {
     "id": "t41",
     "subject": "App is slow",
     "expected_category": "technical",
     "actual_category": "technical",
-    "confidence": 0.94,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.89
+    "latency_seconds": 3.79
   },
   {
     "id": "t42",
@@ -501,23 +501,11 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 3.93
+    "latency_seconds": 3.54
   },
   {
     "id": "t43",
     "subject": "Charged twice again",
-    "expected_category": "billing",
-    "actual_category": "billing",
-    "confidence": 0.99,
-    "expected_status": "already_refunded",
-    "actual_status": "already_refunded",
-    "category_correct": true,
-    "status_correct": true,
-    "latency_seconds": 4.11
-  },
-  {
-    "id": "t44",
-    "subject": "Refund status",
     "expected_category": "billing",
     "actual_category": "billing",
     "confidence": 0.98,
@@ -525,19 +513,31 @@
     "actual_status": "already_refunded",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 1.5
+    "latency_seconds": 5.32
+  },
+  {
+    "id": "t44",
+    "subject": "Refund status",
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "confidence": 0.99,
+    "expected_status": "already_refunded",
+    "actual_status": "already_refunded",
+    "category_correct": true,
+    "status_correct": true,
+    "latency_seconds": 18.46
   },
   {
     "id": "t45",
     "subject": "Failed transaction",
     "expected_category": "billing",
     "actual_category": "billing",
-    "confidence": 0.97,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 3.59
+    "latency_seconds": 2.8
   },
   {
     "id": "t46",
@@ -549,7 +549,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.92
+    "latency_seconds": 0.77
   },
   {
     "id": "t47",
@@ -561,7 +561,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 3.58
+    "latency_seconds": 1.87
   },
   {
     "id": "t48",
@@ -573,55 +573,55 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.81
+    "latency_seconds": 0.82
   },
   {
     "id": "t49",
     "subject": "Referral program",
     "expected_category": "general",
     "actual_category": "general",
-    "confidence": 0.97,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.84
+    "latency_seconds": 0.71
   },
   {
     "id": "t50",
     "subject": "Security concern",
     "expected_category": null,
     "actual_category": "technical",
-    "confidence": 0.93,
+    "confidence": 0.78,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 3.06
+    "latency_seconds": 1.14
   },
   {
     "id": "t51",
     "subject": "Payment methods",
     "expected_category": "general",
     "actual_category": "billing",
-    "confidence": 0.99,
+    "confidence": 0.98,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": false,
     "status_correct": true,
-    "latency_seconds": 2.75
+    "latency_seconds": 0.81
   },
   {
     "id": "t52",
     "subject": "UI feedback",
     "expected_category": "general",
     "actual_category": "general",
-    "confidence": 0.97,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.85
+    "latency_seconds": 0.75
   },
   {
     "id": "t53",
@@ -633,7 +633,7 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.63
+    "latency_seconds": 0.77
   },
   {
     "id": "t54",
@@ -645,43 +645,43 @@
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.86
+    "latency_seconds": 0.8
   },
   {
     "id": "t55",
     "subject": ".",
     "expected_category": null,
     "actual_category": "general",
-    "confidence": 0.97,
+    "confidence": 0.92,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.84
+    "latency_seconds": 2.75
   },
   {
     "id": "t56",
     "subject": "fix it",
     "expected_category": null,
     "actual_category": "general",
-    "confidence": 0.92,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.78
+    "latency_seconds": 2.77
   },
   {
     "id": "t57",
     "subject": "!!!",
     "expected_category": null,
     "actual_category": "general",
-    "confidence": 0.92,
+    "confidence": 0.9,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.77
+    "latency_seconds": 2.91
   },
   {
     "id": "t58",
@@ -693,30 +693,30 @@
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 5.94
+    "latency_seconds": 5.8
   },
   {
     "id": "t59",
     "subject": "Sync stopped working",
     "expected_category": "technical",
     "actual_category": "technical",
-    "confidence": 0.95,
+    "confidence": 0.96,
     "expected_status": "resolved",
     "actual_status": "resolved",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 6.15
+    "latency_seconds": 7.15
   },
   {
     "id": "t60",
     "subject": "Offline use",
     "expected_category": "general",
     "actual_category": "general",
-    "confidence": 0.85,
+    "confidence": 0.96,
     "expected_status": "needs_human",
     "actual_status": "needs_human",
     "category_correct": true,
     "status_correct": true,
-    "latency_seconds": 2.76
+    "latency_seconds": 3.12
   }
 ]

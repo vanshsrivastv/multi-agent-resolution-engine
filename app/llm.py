@@ -16,7 +16,13 @@ GROQ_TRANSIENT = (APIConnectionError, RateLimitError, InternalServerError)
 
 
 @traceable(run_type="llm", name="groq_chat_completion")
-def ask(system_prompt: str, user_message: str, model: str = DEFAULT_MODEL, max_tokens: int = 512) -> str:
+def ask(
+    system_prompt: str,
+    user_message: str,
+    model: str = DEFAULT_MODEL,
+    max_tokens: int = 512,
+    temperature: float | None = None,
+) -> str:
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY is not set. Add it to your .env file.")
@@ -24,6 +30,7 @@ def ask(system_prompt: str, user_message: str, model: str = DEFAULT_MODEL, max_t
     client = Groq(api_key=api_key)
 
     def _call():
+        kwargs = {} if temperature is None else {"temperature": temperature}
         return client.chat.completions.create(
             model=model,
             max_tokens=max_tokens,
@@ -31,6 +38,7 @@ def ask(system_prompt: str, user_message: str, model: str = DEFAULT_MODEL, max_t
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message},
             ],
+            **kwargs,
         )
 
     response = with_retries(_call, GROQ_TRANSIENT)
