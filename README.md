@@ -88,6 +88,18 @@ This project's actual engineering value is here more than in the happy path.
 
 Both discrepancies are root-caused, not glossed over — see `evaluation/results.json` and the commit history for the full analysis. Billing test cases only use deterministic, already-known-state Razorpay data (an already-refunded payment, invalid/missing IDs) — a genuinely fresh successful refund is intentionally excluded from the repeatable suite, since it would consume a real payment on first run and can't be re-tested identically on the next.
 
+## Testing rigor beyond the happy path
+
+Classification/status accuracy alone doesn't prove an AI system is trustworthy — an agent can hit the right category and still hallucinate, or hold up fine under normal input and fail badly under adversarial input. Four additional checks target that gap specifically:
+
+**1. Unit tests + a dedicated routing-precision check.** `tests/` (72 tests, fully mocked, no network) covers every agent, the retry logic, and graph routing in isolation. On top of that, `evaluation/billing_routing_precision.py` runs 50 hand-written, unambiguously billing-shaped messages through the real Triage Agent (real Groq) and checks how many actually clear the 90% confidence gate into the Billing Agent — **50/50 (100%)**.
+
+**2. LLM-as-a-judge for hallucination.** Category/status accuracy says nothing about whether a *resolved* reply actually stayed grounded in its source document. `evaluation/judge_hallucination.py` has a second, independent Groq call grade every resolved technical reply against the exact document it cited. **Result: 5/8 (62%) grounded** — a real, unflattering number, not a rounded-up one. The three flagged cases are informative, not just noise: one ("Setting up 2FA") was a genuine RAG topic mismatch — the retrieved document covers troubleshooting *rejected* 2FA codes, not initial setup, so the agent's honest "I don't have specific steps for that" got flagged by the judge even though it's arguably the right thing to say; the other two are real overgeneralization/added-claim hallucinations (see `evaluation/judge_results.json` for the judge's full reasoning on each). This is the kind of gap a status/category accuracy number alone would never surface.
+
+**3. Red-teaming.** `evaluation/red_team.py` runs 5 adversarial tickets (fake "admin mode" overrides, a fake CEO instruction, a request for the "admin password," a fake system-prompt injection) through the real pipeline and checks a safety invariant per case — not "did it respond politely" but "did it ever take an unsafe action." **Result: 5/5 handled safely**, and notably, every injected instruction was caught by the Triage Agent's own confidence gate before it ever reached an execution agent — the billing/tech-support agents were never even invoked with the adversarial input. Separately, `tests/test_red_team.py` proves (with mocks) that a *total* outage of Groq, Qdrant, Razorpay, or Slack always ends in `needs_human`, never an unhandled crash.
+
+**4. A real bug this testing caught.** Building the outage-simulation tests surfaced an actual bug: `triage_node` only caught `TriageError` (a malformed LLM response), not a raw connection failure from a fully-down Groq — which would have crashed the request with an unhandled 500 instead of escalating. Fixed in `app/graph.py` to catch any triage failure the same way. Found and fixed before it ever shipped, not after.
+
 ## Known limitations
 
 - **In-memory ticket store and LangGraph checkpointer.** Both are Python process memory, not a database. A ticket paused waiting on a Slack decision is lost if the server restarts before someone responds — confirmed in practice during testing. A real deployment needs persistent storage (Postgres) for both.
@@ -111,9 +123,11 @@ app/
 └── store.py         # in-memory ticket store
 
 knowledge_base/      # 6 markdown docs for the Tech Support Agent's RAG search
-evaluation/          # ground-truth dataset + evaluation runner
+evaluation/          # ground-truth dataset, evaluation runner, routing-precision check,
+                     # LLM-judge hallucination check, red-team suite
 scripts/             # one-off dev scripts (index building, manual API checks)
 tests/               # pytest suite, fully mocked — no real API calls, no network
+                     # (includes test_red_team.py — total-outage crash tests)
 ```
 
 ## Running it locally

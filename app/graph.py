@@ -7,7 +7,7 @@ from langgraph.types import Command, interrupt
 
 from app.agents.billing import resolve_billing_ticket
 from app.agents.tech_support import resolve_technical_ticket
-from app.agents.triage import TriageError, classify_ticket
+from app.agents.triage import classify_ticket
 from app.models.ticket import Ticket
 from app.slack_client import send_escalation
 
@@ -41,8 +41,11 @@ def triage_node(state: GraphState) -> dict:
     ticket = state["ticket"]
     try:
         result = classify_ticket(ticket)
-    except TriageError:
-        # Leave category/confidence as None - route_after_triage sends
+    except Exception:
+        # TriageError means Groq answered but the response didn't parse.
+        # Any other exception here means Groq's own retries (in ask())
+        # were exhausted - e.g. a full outage. Either way, leave
+        # category/confidence as None - route_after_triage sends
         # low/missing confidence to escalate, so this needs no special case.
         return {"ticket": ticket.model_copy(update={"status": "triaged"})}
 

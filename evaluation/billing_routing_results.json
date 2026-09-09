@@ -1,0 +1,302 @@
+[
+  {
+    "message": "I was charged twice for the same order, please refund the extra charge.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Where is my refund? It's been a week since I asked for one.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I want to cancel my subscription and get my money back.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "You charged my card but I never received the product.",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please refund this transaction, I ordered by mistake.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "My invoice shows the wrong amount, can you fix the billing?",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I need a receipt for my last payment.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "The subscription renewed automatically and I want a refund.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I was billed for a plan I already cancelled.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Can you refund my payment from last Tuesday?",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "There's an unauthorized charge on my card from your company.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I paid but the order still shows as unpaid, what happened to my money?",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I'd like to dispute a charge on my account.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "My credit card was charged the wrong amount.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Requesting a refund for a duplicate transaction.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I cancelled within the refund window, please process my refund.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Why was I charged a late fee, I paid on time?",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I need my payment reversed, I was double billed.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please issue a refund, the item never shipped.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "This charge on my statement doesn't match what I agreed to pay.",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I want my subscription fee back, I never used the service.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Refund request: order was cancelled before it shipped.",
+    "category": "billing",
+    "confidence": 1.0,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "My payment failed but money was still deducted from my account.",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I was charged in the wrong currency, please correct and refund the difference.",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Can you check why my refund hasn't shown up in my bank account yet?",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I'm being billed monthly but I only signed up for a one-time purchase.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please refund my last payment, I switched to a different plan.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "There's a billing error - I was charged $50 instead of $5.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I want to know why I was charged after I cancelled my account.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Refund needed: the coupon code didn't apply and I overpaid.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "My card statement shows two charges for one order, please refund one.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I paid for premium but got downgraded, I want a partial refund.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please reverse the charge, this was a fraudulent transaction on my card.",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I need a refund because the payment was made in error.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Why do I see a pending charge that I never authorized?",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Requesting a refund for the annual plan I no longer want.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I was charged after my free trial should have ended without payment.",
+    "category": "billing",
+    "confidence": 0.97,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please refund the difference, I was overcharged on shipping.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "My payment method was charged twice due to a checkout glitch.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I cancelled my order immediately, please refund the full amount.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "The refund I was promised hasn't reached my account after 10 days.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I want a refund for a payment made to the wrong account.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Billing question: why is my card being charged more than my listed plan price?",
+    "category": "billing",
+    "confidence": 0.98,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I need to get a refund processed for an accidental purchase.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "This transaction on my card statement is not something I made, please refund it.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I paid for a service that was never activated, please refund me.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Can you refund me since I was charged before my trial ended?",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I want a chargeback reversed and a refund issued to my original payment method.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "Please refund my last invoice, I was billed for an add-on I never selected.",
+    "category": "billing",
+    "confidence": 1.0,
+    "would_route_to_billing": true
+  },
+  {
+    "message": "I need help getting my money back for a payment that failed to go through correctly.",
+    "category": "billing",
+    "confidence": 0.99,
+    "would_route_to_billing": true
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "subject": "Getting a 429 error",
+    "reply": "Hi there,\n\nA\u202f429 status code means **\u201cToo Many Requests.\u201d** The API\u2019s rate limit has been exceeded. To resolve this, you should wait a short while and then retry the request, ideally using an exponential back\u2011off strategy. If you keep seeing 429 responses, consider batching your calls or reducing the request frequency.\n\nLet me know if you need any more help!",
+    "source_doc": "api_error_codes",
+    "grounded": true,
+    "explanation": "All claims about 429 meaning Too Many Requests, rate limit exceeded, waiting and retrying with backoff, and batching calls are supported by the source."
+  },
+  {
+    "subject": "App won't open",
+    "reply": "Hi there,\n\nI\u2019m sorry you\u2019re experiencing crashes right after opening the app. Please try the following steps:\n\n1. **Restart your device** \u2013 a lingering background process is often the cause.  \n2. **Make sure the app is updated** to the newest version (if a newer release is available).  \n3. If the crash persists, **uninstall and reinstall the app** to clear any corrupted cache.\n\nIf the app still closes immediately after a clean reinstall, it may be a device\u2011compatibility issue. In that case, please let us know your device model and OS version so we can pass the details to our engineering team.\n\nThanks for your patience, and let me know how it goes!",
+    "source_doc": "app_crash_on_startup",
+    "grounded": true,
+    "explanation": "All statements match the source document's troubleshooting steps and escalation info."
+  },
+  {
+    "subject": "Can't log in",
+    "reply": "Hi there,\n\nIf the login isn\u2019t succeeding even with the correct password, it\u2019s often due to a corrupted local session cache. Please try the following steps:\n\n1. **Log out completely** (or clear the app\u2019s local storage/cookies).  \n2. **Close the app fully** and then reopen it.  \n3. **Attempt to log in again** with your password.\n\nIf the login still fails after a fresh attempt, the session token may be stuck on our server side and will need a manual reset by our support team. Let me know if that happens, and I\u2019ll arrange for the reset.  \n\nThanks for your patience!",
+    "source_doc": "login_errors",
+    "grounded": false,
+    "explanation": "Agent claims any login failure with correct password is often due to corrupted local cache, but source ties corrupted cache specifically to error 500 cases"
+  },
+  {
+    "subject": "Forgot my password",
+    "reply": "Hi there,\n\nTo reset your password, follow these steps:\n\n1. **Use the \u201cForgot password\u201d link** on the sign\u2011in page.  \n2. **Check your email** a few minutes after you request the reset:  \n   - Look in your spam/junk folder \u2013 the reset message often gets filtered there.  \n   - Make sure the email address on your account is spelled correctly.  \n3. **Wait a bit before trying again** \u2013 if you request a reset too many times, new emails are temporarily blocked. Wait at least 10\u202fminutes and then request another reset if needed.  \n4. **Verify your email address** \u2013 if the email on your account is still unverified, the reset link will not be sent even though the request appears to succeed.\n\nIf you still don\u2019t receive a reset email after trying these steps, let us know and we\u2019ll have a team member investigate further for you.",
+    "source_doc": "password_reset",
+    "grounded": true,
+    "explanation": "All factual statements match the source; no unsupported claims are made."
+  },
+  {
+    "subject": "Data not syncing",
+    "reply": "Hi there!\n\nHere are the quick checks to get your phone and laptop back in sync:\n\n1. **Internet connection** \u2013 Make sure both devices are online.  \n2. **Manual sync** \u2013 Open **Settings\u202f>\u202fSync** and tap **Sync Now** on each device.  \n3. **Same account** \u2013 Verify that both devices are signed into the **same** account (sometimes a second account gets created by accident).\n\nSyncs can take up to ~2\u202fminutes under normal conditions. If it\u2019s been longer and a manual sync didn\u2019t help, the sync queue might be stuck on the server side. In that case, a support team member will need to clear it for you.\n\nLet me know if those steps help or if you need further assistance!",
+    "source_doc": "sync_issues",
+    "grounded": true,
+    "explanation": "All statements match the source; no unsupported facts are added."
+  },
+  {
+    "subject": "Setting up 2FA",
+    "reply": "Hi there,\n\nI\u2019m sorry\u2014I don\u2019t have the specific steps for turning on two\u2011factor authentication in the documentation I have. A team member will reach out shortly to help you enable 2FA on your account. \n\nThanks for your patience!",
+    "source_doc": "two_factor_auth",
+    "grounded": false,
+    "explanation": "Agent claims they don't have specific steps for turning on 2FA in the documentation, which is not supported by the source text."
+  },
+  {
+    "subject": "500 error on checkout",
+    "reply": "Hi there,\n\nI\u2019m sorry you\u2019re encountering a 500 error at checkout. The documentation we have only covers 500 errors that occur during login, which involve clearing the local session cache and re\u2011logging in. Since it doesn\u2019t include steps for a checkout\u2011related 500 error, I don\u2019t have a specific fix to share right now.\n\nA member of our support team will reach out shortly to investigate this issue further and get you back on track. Thank you for your patience!",
+    "source_doc": "login_errors",
+    "grounded": false,
+    "explanation": "Agent claims a support team member will contact the customer, which is not mentioned in the source document."
+  },
+  {
+    "subject": "Can't reset password",
+    "reply": "Hi there,\n\nI\u2019m sorry you haven\u2019t received the reset email. Please try the following steps:\n\n1. **Check your spam/junk folder** \u2013 the reset message is often filtered there.  \n2. **Verify the email address** on your account is typed correctly.  \n3. **Wait at least 10\u202fminutes** before requesting another reset. Sending several requests in a row can temporarily block new emails.\n\nIf you still don\u2019t get the email, the address on the account may be **unverified**, which can cause the reset email to fail silently. In that case, you\u2019ll need to verify the email address (or have a support team member help you do so).\n\nLet me know if you need any further assistance!",
+    "source_doc": "password_reset",
+    "grounded": true,
+    "explanation": "All statements align with the source; the advice to verify the email follows logically from the unverified email note."
+  }
+]
