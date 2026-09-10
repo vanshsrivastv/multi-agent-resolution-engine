@@ -65,7 +65,7 @@ def resolve_billing_ticket(ticket: Ticket) -> BillingResult:
     if payment["status"] == "refunded":
         return BillingResult(
             status="already_refunded",
-            reply="This payment was already refunded previously — no further action needed.",
+            reply="This payment was already refunded previously. No further action is needed.",
             amount=payment["amount"],
         )
 

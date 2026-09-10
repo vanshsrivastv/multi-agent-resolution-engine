@@ -2,7 +2,7 @@
 
 If the app closes itself right after opening, before any screen loads:
 
-1. Restart the device — a stale background process is the most common cause.
+1. Restart the device. A stale background process is the most common cause.
 2. Update the app to the latest version; startup crashes are usually fixed
    in the next release once reported.
 3. As a last resort, uninstall and reinstall the app. This clears any
